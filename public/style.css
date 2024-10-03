@@ -1,0 +1,39 @@
+/* Define o fundo gradiente retro */
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Altera a direção para coluna */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    background: linear-gradient(135deg, #320d6d, #0496ff);
+    font-family: 'Press Start 2P', cursive; /* Fonte estilo retro */
+}
+
+/* Centraliza o conteúdo */
+.container {
+    text-align: center;
+}
+
+/* Estilo do botão estilo retro */
+.retro-button {
+    background-color: #0496ff;
+    color: white;
+    border: 5px solid #ffffff;
+    padding: 20px;
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    border-radius: 50%;
+    width: 84px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retro-button:hover {
+    background-color: #0056a5;
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Remoto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #displayIdField {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Bem-vindo ao Controle Remoto</h1>
+
+    <label for="userId">Digite seu ID (alfa-numérico):</label>
+    <input type="text" id="userId" placeholder="Ex: abc123" required>
+
+    <label for="roleSelect">Escolha o seu papel:</label>
+    <select id="roleSelect">
+        <option value="display">Display (Controlado)</option>
+        <option value="control">Controle (Controlador)</option>
+    </select>
+
+    <div id="displayIdField">
+        <label for="displayId">Digite o ID do Display a controlar:</label>
+        <input type="text" id="displayId" placeholder="Ex: def456">
+    </div>
+
+    <button id="submitBtn">Entrar</button>
+</div>
+
+<script>
+    const roleSelect = document.getElementById('roleSelect');
+    const displayIdField = document.getElementById('displayIdField');
+    const submitBtn = document.getElementById('submitBtn');
+    const userId = document.getElementById('userId');
+    const displayId = document.getElementById('displayId');
+
+    // Mostrar campo de ID do Display quando selecionado como controle
+    roleSelect.addEventListener('change', () => {
+        if (roleSelect.value === 'control') {
+            displayIdField.style.display = 'block';
+        } else {
+            displayIdField.style.display = 'none';
+        }
+    });
+
+    // Redirecionamento baseado na escolha
+    submitBtn.addEventListener('click', () => {
+        const selectedRole = roleSelect.value;
+        const userIdValue = userId.value;
+        const displayIdValue = displayId.value;
+
+        if (userIdValue.trim() === '') {
+            alert('Por favor, insira um ID válido.');
+            return;
+        }
+
+        if (selectedRole === 'control' && displayIdValue.trim() === '') {
+            alert('Por favor, insira o ID do display a controlar.');
+            return;
+        }
+
+        // Redirecionar para a página correta (controle ou display)
+        if (selectedRole === 'display') {
+            window.location.href = `display.html?id=${userIdValue}`;
+        } else if (selectedRole === 'control') {
+            window.location.href = `control.html?id=${userIdValue}&displayId=${displayIdValue}`;
+        }
+    });
+</script>
+
+</body>
+</html>
