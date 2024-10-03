@@ -1,8 +1,13 @@
 {
+  "name": "my-socket-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "express": "^4.21.0",
     "http": "^0.0.1-security",
-    "npx": "^10.2.2",
     "path": "^0.12.7",
     "socket.io": "^4.8.0"
   }
