@@ -42,7 +42,8 @@ io.on('connection', (socket) => {
     });
 });
 
-// Inicia o servidor na porta 4444
-server.listen(4444, () => {
-    console.log('Servidor rodando na porta 4444');
+// Inicia o servidor na porta fornecida pelo Glitch
+const PORT = process.env.PORT || 4444;
+server.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
